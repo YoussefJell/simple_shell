@@ -1,5 +1,9 @@
 #include "main.h"
-
+/**
+ * split_str - splits string into array of elements for execution
+ * @line: string input from read_line
+ * Return: Array of elements to execute
+ */
 char **split_str(char *line)
 {
 	char *saveStr, *delimit = " \t\r\n\a";

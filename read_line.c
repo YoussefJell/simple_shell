@@ -1,5 +1,8 @@
 #include "main.h"
-
+/**
+ * read_line - reads line from input
+ * Return: string
+ */
 char *read_line(void)
 {
 	char *string;
