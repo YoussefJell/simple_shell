@@ -14,7 +14,6 @@ int main(int ac UNUSEDVAR, char **av UNUSEDVAR, char **env)
 	char *string;
 	char **args;
 	int status;
-	char *parsedPath;
 
 	while (status)
 	{

@@ -9,19 +9,12 @@
 int execute_arg(char **args, char **env)
 {
 	pid_t child;
-	int status, i = 0;
+	int status;
 	char *parsedPath;
-	cmp *compare[];
 
-	compare = {{"exit", _exit},{"env", print_env},{NULL, NULL}};
 	if (args[0] == NULL)
 		return (1);
-	while (compare[i] != NULL)
-	{
-		if (_strcmp(args[0], compare[i].cmd) == 0)
-			compare[i].builtin();
-		i++;
-	}
+
 	child = fork();
 
 	if (child == 0)
@@ -29,9 +22,8 @@ int execute_arg(char **args, char **env)
 		parsedPath = parse_path(args[0]);
 		if (execve(parsedPath, args, env) == -1)
 		{
-			perror("./hsh");
+			exit(-1);
 		}
-		exit(-1);
 	}
 	else if (child < 0)
 	{

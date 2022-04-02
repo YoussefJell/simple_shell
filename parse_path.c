@@ -30,8 +30,11 @@ char *parse_path(char *firstArg)
 			{
 				return (newPath);
 			}
-			newPath = NULL;
-			i++;
+			else
+			{
+				newPath = NULL;
+				i++;
+			}
 		}
 	}
 	return (NULL);
