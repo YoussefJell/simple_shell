@@ -9,15 +9,19 @@
 int execute_arg(char **args, char **env)
 {
 	pid_t child;
-	int status;
+	int status, i = 0;
 	char *parsedPath;
+	cmp *compare[];
 
+	compare = {{"exit", _exit},{"env", print_env},{NULL, NULL}};
 	if (args[0] == NULL)
 		return (1);
-
-	if (_strcmp(args[0], "exit") == 0)
-		exit (0);
-
+	while (compare[i] != NULL)
+	{
+		if (_strcmp(args[0], compare[i].cmd) == 0)
+			compare[i].builtin();
+		i++;
+	}
 	child = fork();
 
 	if (child == 0)
