@@ -46,5 +46,6 @@ char *parse_path(char *firstArg);
 list *pathToSLL(char *path);
 list *add_node(list *head, char *str);
 int _strcmp(const char *s1, const char *s2);
+int _exit(void);
 
 #endif
