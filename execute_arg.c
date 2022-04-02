@@ -15,6 +15,9 @@ int execute_arg(char **args, char **env)
 	if (args[0] == NULL)
 		return (1);
 
+	if (_strcmp(args[0], "exit") == 0)
+		exit (0);
+
 	child = fork();
 
 	if (child == 0)
