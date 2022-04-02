@@ -1,5 +1,9 @@
 #include "main.h"
-
+/**
+ * parse_path - parses the path to find executable
+ * @firstArg: executable name or path to executable
+ * Return: executable location if found
+ */
 char *parse_path(char *firstArg)
 {
 	char *path, **splitPath, *newPath;
@@ -9,20 +13,26 @@ char *parse_path(char *firstArg)
 	path = _getenv("PATH");
 	if (path)
 	{
-		splitPath = split_str(path);
+		splitPath = split_path(path);
 	}
 
-	while (splitPath[i] != NULL)
+	if (stat(firstArg, &st) == 0)
 	{
-		newPath = _strcat(splitPath[i], "/");
-		newPath = _strcat(splitPath[i], firstArg);
-		if (stat(newPath, &st) == 0)
-		{
-			return (newPath);
-		}
-		newPath = NULL;
-		i++;
+		return (firstArg);
 	}
-
+	else
+	{
+		while (splitPath[i] != NULL)
+		{
+			newPath = _strcat(splitPath[i], "/");
+			newPath = _strcat(splitPath[i], firstArg);
+			if (stat(newPath, &st) == 0)
+			{
+				return (newPath);
+			}
+			newPath = NULL;
+			i++;
+		}
+	}
 	return (NULL);
 }

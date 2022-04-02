@@ -22,7 +22,7 @@ int execute_arg(char **args, char **env)
 		parsedPath = parse_path(args[0]);
 		if (execve(parsedPath, args, env) == -1)
 		{
-			perror("Error");
+			perror("./hsh");
 		}
 		exit(-1);
 	}
