@@ -6,10 +6,10 @@
  * @env: environment variable from main
  * Return: 1 for loop
  */
-int execute_arg(char **args, char **env)
+int execute_arg(char **args, char **env, char *filename)
 {
 	pid_t child;
-	int status;
+	int status, count = 0;
 	char *parsedPath;
 
 	if (args[0] == NULL)
@@ -25,14 +25,14 @@ int execute_arg(char **args, char **env)
 		if (_strcmp(args[0], "env") == 0)
 		{
 			print_env();
-			return (1);
 		}
 
 		parsedPath = parse_path(args[0]);
 		if (execve(parsedPath, args, env) == -1)
 		{
-			exit(-1);
+			printf("%s: 1: %s: not found\n", filename, args[0]);
 		}
+		exit(-1);
 	}
 	else if (child < 0)
 	{

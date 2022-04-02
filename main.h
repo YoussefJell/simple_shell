@@ -26,7 +26,7 @@ extern char **environ;
 char *read_line(void);
 char **split_str(char *line);
 char **split_path(char *path);
-int execute_arg(char **args, char **env);
+int execute_arg(char **args, char **env, char *filename);
 char *_getenv(const char *name);
 char *_strstr(char *haystack, const char *needle);
 void print_env(void);

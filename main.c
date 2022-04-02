@@ -21,10 +21,12 @@ int main(int ac UNUSEDVAR, char **av UNUSEDVAR, char **env)
 
 		string = read_line();
 		args = split_str(string);
-		status = execute_arg(args, env);
+		status = execute_arg(args, env, av[0]);
 
 		free(string);
 		free(args);
 	}
+	if (status == -1)
+		printf("%s: 1: %s: Error", av[0], av[1]);
 	return (0);
 }
