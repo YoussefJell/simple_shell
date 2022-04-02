@@ -9,7 +9,7 @@
 int execute_arg(char **args, char **env, char *filename)
 {
 	pid_t child;
-	int status, count = 0;
+	int status;
 	char *parsedPath;
 
 	if (args[0] == NULL)
