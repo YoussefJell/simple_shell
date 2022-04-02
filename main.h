@@ -10,11 +10,13 @@
 #include <stdio.h>
 #include <sys/wait.h>
 
+extern char **environ;
 char *read_line(void);
 char **split_str(char *line);
 int execute_arg(char **args, char **env);
 char *_getenv(const char *name);
 char *_strstr(char *haystack, const char *needle);
-void print_env(char **env);
+void print_env(void);
+int _strlen(const char *s);
 
 #endif
