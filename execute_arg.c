@@ -10,6 +10,7 @@ int execute_arg(char **args, char **env)
 {
 	pid_t child;
 	int status;
+	char *parsedPath;
 
 	if (args[0] == NULL)
 		return (1);
@@ -18,9 +19,10 @@ int execute_arg(char **args, char **env)
 
 	if (child == 0)
 	{
-		if (execve(args[0], args, env) == -1)
+		parsedPath = parse_path(args[0]);
+		if (execve(parsedPath, args, env) == -1)
 		{
-			perror(args[0]);
+			perror("Error");
 		}
 		exit(-1);
 	}

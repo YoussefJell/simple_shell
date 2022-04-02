@@ -6,6 +6,7 @@
 char *read_line(void)
 {
 	char *string;
+	int input;
 	size_t bufsize = 0;
 
 	string = (char *)malloc(sizeof(char) * bufsize);
@@ -14,7 +15,12 @@ char *read_line(void)
 		perror("Error");
 	}
 
-	getline(&string, &bufsize, stdin);
+	input = getline(&string, &bufsize, stdin);
 
+	if (input == -1)
+	{
+		printf("\n");
+		exit(0);
+	}
 	return (string);
 }
