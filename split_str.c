@@ -6,7 +6,7 @@
  */
 char **split_str(char *line)
 {
-	char *saveStr, *delimit = " \t\r\n\a:";
+	char *saveStr, *delimit = " \t\r\n\a";
 	char **argv;
 	int count;
 
