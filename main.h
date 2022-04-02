@@ -21,7 +21,17 @@ typedef struct list
 	char *dir;
 	struct list *next;
 } list;
-
+/**
+ * struct cmp - compares strings
+ * @cmd: string
+ * @builtin: function pointer
+ * Description: compare argument to command
+ */
+typedef struct cmp
+{
+	char *cmd;
+	int (*builtin[]) (char **);
+} cmp;
 extern char **environ;
 char *read_line(void);
 char **split_str(char *line);
@@ -35,5 +45,6 @@ char *_strcat(char *dest, char *src);
 char *parse_path(char *firstArg);
 list *pathToSLL(char *path);
 list *add_node(list *head, char *str);
+int _strcmp(const char *s1, const char *s2);
 
 #endif
