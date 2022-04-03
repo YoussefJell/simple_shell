@@ -17,7 +17,8 @@ int main(int ac UNUSEDVAR, char **av UNUSEDVAR, char **env)
 
 	while (status)
 	{
-		printf("($) ");
+		if (isatty(STDIN_FILENO))
+			write(STDOUT_FILENO, "($) ", 4);
 
 		string = read_line();
 		args = split_str(string);
@@ -26,7 +27,5 @@ int main(int ac UNUSEDVAR, char **av UNUSEDVAR, char **env)
 		free(string);
 		free(args);
 	}
-	if (status == -1)
-		printf("%s: 1: %s: Error", av[0], av[1]);
 	return (0);
 }

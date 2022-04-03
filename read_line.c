@@ -19,7 +19,6 @@ char *read_line(void)
 
 	if (input == -1)
 	{
-		printf("\n");
 		exit(0);
 	}
 	return (string);

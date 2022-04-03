@@ -4,6 +4,7 @@
  *
  * @args: arguments to execute
  * @env: environment variable from main
+ * @filename: filename from main
  * Return: 1 for loop
  */
 int execute_arg(char **args, char **env, char *filename)
@@ -19,10 +20,10 @@ int execute_arg(char **args, char **env, char *filename)
 		return (0);
 
 	if (_strcmp(args[0], "env") == 0)
-                {
-                        print_env();
-			return (1);
-                }
+	{
+		print_env();
+		return (1);
+	}
 
 	child = fork();
 
