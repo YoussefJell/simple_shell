@@ -18,15 +18,16 @@ int execute_arg(char **args, char **env, char *filename)
 	if (_strcmp(args[0], "exit") == 0)
 		return (0);
 
+	if (_strcmp(args[0], "env") == 0)
+                {
+                        print_env();
+			return (1);
+                }
+
 	child = fork();
 
 	if (child == 0)
 	{
-		if (_strcmp(args[0], "env") == 0)
-		{
-			print_env();
-		}
-
 		parsedPath = parse_path(args[0]);
 		if (execve(parsedPath, args, env) == -1)
 		{
