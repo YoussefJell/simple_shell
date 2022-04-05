@@ -24,5 +24,6 @@ void print_env(void);
 char *read_line(void);
 char **split_str(char *input, char *delimiter);
 int _putchar(char c);
+void handler (int num);
 
 #endif
