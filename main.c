@@ -21,6 +21,7 @@ int main(int ac UNUSEDVAR, char **av UNUSEDVAR)
 
 	while (status)
 	{
+		signal(SIGINT, handler);
 		if (isatty(STDIN_FILENO))
 			write(STDOUT_FILENO, "($) ", 4);
 
@@ -31,5 +32,6 @@ int main(int ac UNUSEDVAR, char **av UNUSEDVAR)
 		free(string);
 		free(tokens);
 	}
+	free(splitPath);
 	return (0);
 }
