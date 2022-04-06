@@ -9,9 +9,10 @@ char *check_path(char *firstArg, char **splitPath)
 	int i = 0;
 	struct stat st;
 
-	if (stat(firstArg, &st) == 0)
+	if (firstArg[0] == '.' || firstArg[0] == '/')
 	{
-		return (firstArg);
+		if (stat(firstArg, &st) == 0)
+			return (firstArg);
 	}
 	else
 	{
@@ -19,9 +20,7 @@ char *check_path(char *firstArg, char **splitPath)
 		{
 			newArg = _strcat(splitPath[i], firstArg);
 			if (stat(newArg, &st) == 0)
-			{
 				return (newArg);
-			}
 			i++;
 		}
 	}
