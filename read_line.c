@@ -12,7 +12,7 @@ char *read_line(void)
 	string = (char *)malloc(sizeof(char) * bufsize);
 	if (string == NULL)
 	{
-		perror("Error");
+		perror("./hsh");
 	}
 
 	input = getline(&string, &bufsize, stdin);

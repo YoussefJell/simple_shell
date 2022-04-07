@@ -25,7 +25,7 @@ int execute_arg(char **args, char **splitPath)
 		{
 			if (execve(args[0], args, environ) == -1)
 			{
-				perror("Execute");
+				perror("./hsh");
 			}
 			exit(-1);
 		}
@@ -33,6 +33,6 @@ int execute_arg(char **args, char **splitPath)
 			wait(&status);
 	}
 	else
-		perror("Error");
+		perror("./hsh");
 	return (1);
 }
