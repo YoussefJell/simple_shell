@@ -1,10 +1,8 @@
 #include "main.h"
 /**
  * execute_arg - executes arguments from split
- *
  * @args: arguments to execute
- * @env: environment variable from main
- * @filename: filename from main
+ * @splitPath: path value
  * Return: 1 for loop
  */
 int execute_arg(char **args, char **splitPath)
@@ -14,13 +12,8 @@ int execute_arg(char **args, char **splitPath)
 
 	if (args[0] == NULL)
 		return (1);
-	if (_strcmp(args[0], "exit") == 0)
-		return (0);
-	if (_strcmp(args[0], "env") == 0)
-	{
-		print_env();
+	if (check_built_in(args))
 		return (1);
-	}
 	args[0] = check_path(args[0], splitPath);
 	if (args[0] != NULL)
 	{

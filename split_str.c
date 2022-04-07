@@ -1,7 +1,8 @@
 #include "main.h"
 /**
  * split_str - splits string into array of elements for execution
- * @line: string input from read_line
+ * @input: string input from read_line
+ * @delimiter: delimit the string input
  * Return: Array of elements to execute
  */
 char **split_str(char *input, char *delimiter)

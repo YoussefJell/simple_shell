@@ -16,7 +16,7 @@ int _strlen(const char *s)
  * _strcmp - compare two strings
  * @s1: string one
  * @s2: string two
- * Return: 0 on success, less than 0 if s1 compares less than s2, and greater than 0 if s1 compares greater than s2.
+ * Return: 0 on success
  */
 int _strcmp(const char *s1, const char *s2)
 {
@@ -29,8 +29,8 @@ int _strcmp(const char *s1, const char *s2)
 }
 /**
  * _strcat - concatenates two strings
- * @dest: destination
- * @src: source
+ * @s1: destination
+ * @s2: source
  * Return: (pointer to dest)
  */
 char *_strcat(char *s1, char *s2)
@@ -64,4 +64,30 @@ char *_strcat(char *s1, char *s2)
 int _putchar(char c)
 {
 	return (write(1, &c, 1));
+}
+/**
+ * _atoi - converts a character string to an integer
+ * @c: string
+ * Return: the converted integral number as an int value
+ */
+int _atoi(char *c)
+{
+	int value = 0;
+	int sign = 1;
+
+	if (*c == '+' || *c == '-')
+	{
+		if (*c == '-')
+		{
+			sign = -1;
+		}
+		c++;
+	}
+	while (_isdigit(*c))
+	{
+		value *= 10;
+		value += (int) (*c - '0');
+		c++;
+	}
+	return (value * sign);
 }
