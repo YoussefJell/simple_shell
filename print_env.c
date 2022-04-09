@@ -6,7 +6,8 @@
  * Return: none
  */
 
-int print_env(char **args UNUSEDVAR, char **splitPath UNUSEDVAR, char *string UNUSEDVAR)
+int print_env(char **args UNUSEDVAR, char **splitPath UNUSEDVAR,
+char *string UNUSEDVAR)
 {
 	unsigned int i;
 

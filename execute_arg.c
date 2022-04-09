@@ -3,6 +3,7 @@
  * execute_arg - executes arguments from split
  * @args: arguments to execute
  * @splitPath: path value
+ * @string: string input from read_line
  * Return: 1 for loop
  */
 int execute_arg(char **args, char **splitPath, char *string)
@@ -41,7 +42,6 @@ int execute_arg(char **args, char **splitPath, char *string)
 	else
 	{
 		perror("./hsh");
-		
 	}
 	return (1);
 }
