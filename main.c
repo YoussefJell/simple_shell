@@ -13,7 +13,7 @@ int main(int ac UNUSEDVAR, char **av UNUSEDVAR)
 	char *string;
 	char **tokens;
 	char *path, **splitPath;
-	int status;
+	int status = 1;
 
 	path = _getenv("PATH");
 	splitPath = split_str(path, ":\n");
@@ -24,9 +24,9 @@ int main(int ac UNUSEDVAR, char **av UNUSEDVAR)
 		if (isatty(STDIN_FILENO))
 			write(STDOUT_FILENO, "($) ", 4);
 
-		string = read_line();
+		string = read_line(splitPath);
 		tokens = split_str(string, " \t\n\r");
-		status = execute_arg(tokens, splitPath);
+		status = execute_arg(tokens, splitPath, string);
 
 		free(string);
 		free(tokens);
