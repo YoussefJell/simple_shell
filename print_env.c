@@ -16,6 +16,5 @@ char *string UNUSEDVAR)
 	{
 		printf("%s\n", environ[i++]);
 	}
-	free(splitPath);
 	return (1);
 }
