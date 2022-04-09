@@ -26,5 +26,6 @@ char *check_path(char *firstArg, char **splitPath)
 			i++;
 		}
 	}
+	free(newArg);
 	return (NULL);
 }
