@@ -40,10 +40,10 @@ char *_strcat(char *s1, char *s2)
 
 	i = _strlen(s1);
 	j = _strlen(s2);
-	string = malloc(sizeof(char) * (i + j + 1));
+	string = malloc(sizeof(char) * (i + j + 2));
 	if (string == NULL)
 		return (NULL);
-	for (k = 0; k < (i + j + 1); k++)
+	for (k = 0; k < (i + j + 2); k++)
 	{
 		if (k < i)
 			string[k] = s1[k];
@@ -86,7 +86,7 @@ int _atoi(char *c)
 	while (_isdigit(*c))
 	{
 		value *= 10;
-		value += (int) (*c - '0');
+		value += (int)(*c - '0');
 		c++;
 	}
 	return (value * sign);
