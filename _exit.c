@@ -10,17 +10,27 @@ int exit_terminal(char **args, char **splitPath, char *string)
 {
 	int i;
 
-	if (args[1] != NULL)
+	if (args[1] == NULL || _strcmp(args[1], "0") == 0)
 	{
-		i = _atoi(args[1]);
+		free(args);
+		free(splitPath);
+		free(string);
+		exit(0);
+	}
+	i = _atoi(args[1]);
+	if (args[1] != NULL && i != 0)
+	{
 		free(args);
 		free(splitPath);
 		free(string);
 		exit(i);
 	}
-	free(args);
-	free(splitPath);
-	free(string);
-	exit(0);
-	return (0);
+	else
+	{
+		_puts("/bin/sh: 1: exit: Illegal number: ");
+		_puts(args[1]);
+		_puts("\n");
+		return (1);
+	}
+	return (1);
 }
