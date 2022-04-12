@@ -27,7 +27,7 @@ int exit_terminal(char **args, char **splitPath, char *string)
 	}
 	else
 	{
-		_puts("/bin/sh: 1: exit: Illegal number: ");
+		_puts("./hsh: 1: exit: Illegal number: ");
 		_puts(args[1]);
 		_puts("\n");
 		return (1);
