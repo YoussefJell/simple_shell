@@ -30,7 +30,7 @@ int exit_terminal(char **args, char **splitPath, char *string)
 		_puts("./hsh: 1: exit: Illegal number: ");
 		_puts(args[1]);
 		_puts("\n");
-		return (1);
+		exit(2);
 	}
 	return (1);
 }
