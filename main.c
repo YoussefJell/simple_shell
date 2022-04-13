@@ -31,7 +31,6 @@ int main(int ac UNUSEDVAR, char **av UNUSEDVAR)
 		free(string);
 		free(tokens);
 	}
-	free(path);
 	free(splitPath);
 	return (0);
 }
