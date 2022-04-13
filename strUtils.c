@@ -78,9 +78,7 @@ int _atoi(char *c)
 	if (*c == '+' || *c == '-')
 	{
 		if (*c == '-')
-		{
 			sign = -1;
-		}
 		c++;
 	}
 	while (_isdigit(*c))
