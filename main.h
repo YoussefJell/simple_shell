@@ -40,5 +40,6 @@ int _atoi(char *c);
 int _isdigit(int c);
 int check_built_in(char **args, char **splitPath, char *string);
 int _puts(const char *string);
+int change_directory(char **args, char **splitPath, char *string);
 
 #endif
