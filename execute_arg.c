@@ -1,5 +1,4 @@
 #include "main.h"
-#define UNUSEDVAR __attribute__((unused))
 /**
  * execute_arg - executes arguments from split
  * @args: arguments to execute
@@ -7,18 +6,15 @@
  * @string: string input from read_line
  * Return: 1 for loop
  */
-int execute_arg(char **args, char **splitPath, char *string UNUSEDVAR)
+int execute_arg(char **args, char **splitPath, char *string)
 {
 	pid_t child;
 	int status;
 
 	if (args[0] == NULL)
 		return (1);
-	if (args[0] != NULL)
-	{	
-		if (_strcmp(args[0], "exit") == 0)
-			exit(0);
-	}
+	if (check_built_in(args, splitPath, string))
+		return (1);
 	args[0] = check_path(args[0], splitPath);
 	if (args[0] != NULL)
 	{
