@@ -9,20 +9,12 @@
 int print_env(char **args UNUSEDVAR, char **splitPath UNUSEDVAR,
 			  char *string UNUSEDVAR)
 {
-	unsigned int i = 0, j = 0;
+	int i = 0;
 
 	while (environ[i])
 	{
-		j = 0;
-		while (environ[i][j])
-		{
-			_putchar(environ[i][j]);
-			j++;
-		}
-
-		if (j != 0)
-			_putchar('\n');
-		i++;
+		_puts(environ[i++]);
+		_putchar('\n');
 	}
 	return (1);
 }
