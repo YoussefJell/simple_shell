@@ -15,7 +15,7 @@ int main(int ac UNUSEDVAR, char **av UNUSEDVAR)
 	char *path, **splitPath;
 	int status = 1;
 
-	path = _getenv("PATH");
+	path = getenv("PATH");
 	splitPath = split_str(path, ":\n");
 
 	while (status)
@@ -31,6 +31,7 @@ int main(int ac UNUSEDVAR, char **av UNUSEDVAR)
 		free(string);
 		free(tokens);
 	}
+	free(path);
 	free(splitPath);
 	return (0);
 }
