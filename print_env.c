@@ -7,14 +7,22 @@
  */
 
 int print_env(char **args UNUSEDVAR, char **splitPath UNUSEDVAR,
-char *string UNUSEDVAR)
+			  char *string UNUSEDVAR)
 {
-	unsigned int i;
+	unsigned int i = 0, j = 0;
 
-	i = 0;
-	while (environ[i] != NULL)
+	while (environ[i])
 	{
-		printf("%s\n", environ[i++]);
+		j = 0;
+		while (environ[i][j])
+		{
+			_putchar(environ[i][j]);
+			j++;
+		}
+
+		if (j != 0)
+			_putchar('\n');
+		i++;
 	}
 	return (1);
 }
