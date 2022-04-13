@@ -11,7 +11,6 @@ int check_built_in(char **args, char **splitPath, char *string)
 	built_in fncs[] = {
 		{"exit", exit_terminal},
 		{"env", print_env},
-		{"cd", change_directory},
 		{NULL, NULL}
 	};
 
