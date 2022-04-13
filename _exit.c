@@ -15,7 +15,7 @@ int exit_terminal(char **args, char **splitPath, char *string)
 		free(args);
 		free(splitPath);
 		free(string);
-		exit(0);
+		exit(EXIT_SUCCESS);
 	}
 	i = _atoi(args[1]);
 	if (args[1] != NULL && i != 0)
